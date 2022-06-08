@@ -1,5 +1,5 @@
 
-package org.dis.front;
+package org.dis.back;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;

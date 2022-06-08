@@ -1,11 +1,9 @@
 
-package org.dis.front;
+package org.dis.back;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
 public class SistemaOperativo {
 
     @SerializedName("-nombre_SO")

@@ -1,9 +1,8 @@
 
-package org.dis.front;
+package org.dis.back;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -20,7 +19,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "correo_usuario",
     "ubicacion_usuario"
 })
-@Generated("jsonschema2pojo")
 public class Usuario {
 
     @JsonProperty("id_usuario")

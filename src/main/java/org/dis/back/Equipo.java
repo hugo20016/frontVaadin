@@ -1,7 +1,7 @@
 
-package org.dis.front;
+package org.dis.back;
 
-import javax.annotation.Generated;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "hw",
     "sw"
 })
-@Generated("jsonschema2pojo")
+
 public class Equipo {
 
     @JsonProperty("id_equipo")
