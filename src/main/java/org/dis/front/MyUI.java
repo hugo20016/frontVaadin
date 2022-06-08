@@ -6,11 +6,7 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -25,18 +21,49 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         final VerticalLayout layout = new VerticalLayout();
-        
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
+        TabSheet tabSheet = new TabSheet();
 
-        Button button = new Button("Click Me");
-        button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
+        /* ==== Estructura tab Usuarios ==== */
+
+        final VerticalLayout layoutUsuariosContainer = new VerticalLayout();
+        final HorizontalLayout layoutUsuarios = new HorizontalLayout();
+
+        Button botonUsuario = new Button("Usuarios");
+        botonUsuario.addClickListener(e -> {
+            layout.addComponent(new Label("El boton Usuarios funciona!"));
         });
-        
-        layout.addComponents(name, button);
-        
+
+        /* ==== Estructura tab Equipos ==== */
+
+        final VerticalLayout layoutEquiposContainer = new VerticalLayout();
+        final HorizontalLayout layoutEquipos = new HorizontalLayout();
+
+        Button botonEquipo = new Button("Equipos");
+        botonEquipo.addClickListener(e -> {
+            layout.addComponent(new Label("El boton Equipos funciona!"));
+        });
+
+        /* ==== Estructura tab Prestamos ==== */
+
+        final VerticalLayout layoutPrestamosContainer = new VerticalLayout();
+        final HorizontalLayout layoutPrestamos = new HorizontalLayout();
+
+        Button botonPrestamos = new Button("Prestamos");
+        botonPrestamos.addClickListener(e -> {
+            layout.addComponent(new Label("El boton Prestamos funciona!"));
+        });
+
+        layoutUsuariosContainer.addComponent(botonUsuario);
+        layoutEquiposContainer.addComponent(botonEquipo);
+        layoutPrestamosContainer.addComponent(botonPrestamos);
+
+        tabSheet.addTab(layoutUsuariosContainer, "Usuarios");
+        tabSheet.addTab(layoutEquiposContainer, "Equipos");
+        tabSheet.addTab(layoutPrestamosContainer, "Prestamos");
+
+
+
+        layout.addComponent(tabSheet);
         setContent(layout);
     }
 
