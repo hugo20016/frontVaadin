@@ -7,6 +7,8 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
+import org.dis.back.Equipo;
+import org.dis.back.SistemaOperativo;
 import org.dis.back.Usuario;
 
 import java.util.Arrays;
@@ -32,11 +34,6 @@ public class MyUI extends UI {
         final VerticalLayout layoutUsuariosContainer = new VerticalLayout();
         final HorizontalLayout layoutUsuarios = new HorizontalLayout();
 
-        Button botonUsuario = new Button("Usuarios");
-        botonUsuario.addClickListener(e -> {
-            layout.addComponent(new Label("El boton Usuarios funciona!"));
-        });
-
         /* ==== Añadir un grid con los datos de los usuarios ==== */
         Grid<Usuario> gridUsuarios = new Grid<>();
         
@@ -52,10 +49,21 @@ public class MyUI extends UI {
         List<Usuario> usuarios = Arrays.asList(
                 new Usuario("1", "Nombre1", "Correo1", "Departamento1", "Ubicacion1", "Telefono1"));
 
+        gridUsuarios.setItems(usuarios);
         /* ==== Estructura tab Equipos ==== */
 
         final VerticalLayout layoutEquiposContainer = new VerticalLayout();
         final HorizontalLayout layoutEquipos = new HorizontalLayout();
+
+        Grid<Equipo> gridEquipos = new Grid<>();
+        gridEquipos.setCaption("Equipos");
+        gridEquipos.setSizeFull();
+        gridEquipos.addColumn(Equipo::getIdEquipo).setCaption("IdEquipo");
+        gridEquipos.addColumn(Equipo::getTipo).setCaption("Tipo");
+        gridEquipos.addColumn(Equipo::getMarca).setCaption("Marca");
+        gridEquipos.addColumn(Equipo::getUso).setCaption("Uso");
+        gridEquipos.addColumn(Equipo::getSO_nombre).setCaption("SO_nombre");
+        gridEquipos.addColumn(Equipo::getSO_version).setCaption("SO_version");
 
         /* ==== Estructura tab Prestamos ==== */
 
@@ -63,9 +71,7 @@ public class MyUI extends UI {
         final HorizontalLayout layoutPrestamos = new HorizontalLayout();
 
         layoutUsuariosContainer.addComponent(gridUsuarios);
-
-
-
+        layoutEquiposContainer.addComponent(gridEquipos);
         tabSheet.addTab(layoutUsuariosContainer, "Usuarios");
         tabSheet.addTab(layoutEquiposContainer, "Equipos");
         tabSheet.addTab(layoutPrestamosContainer, "Prestamos");

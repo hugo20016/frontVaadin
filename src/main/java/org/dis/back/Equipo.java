@@ -16,7 +16,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "marca",
     "uso",
     "hw",
-    "sw"
+    "sw",
+    "SO"
 })
 
 public class Equipo {
@@ -33,6 +34,8 @@ public class Equipo {
     private Hw hw;
     @JsonProperty("sw")
     private Sw sw;
+    @JsonProperty("SO")
+    private SistemaOperativo SO;
 
 
     /**
@@ -51,7 +54,7 @@ public class Equipo {
      * @param sw
      * @param hw
      */
-    public Equipo(String idEquipo, String tipo, String marca, String uso, Hw hw, Sw sw) {
+    public Equipo(String idEquipo, String tipo, String marca, String uso, Hw hw, Sw sw, SistemaOperativo SO) {
         super();
         this.idEquipo = idEquipo;
         this.tipo = tipo;
@@ -59,6 +62,9 @@ public class Equipo {
         this.uso = uso;
         this.hw = hw;
         this.sw = sw;
+        this.SO = SO;
+
+        SistemaOperativo sistemaOperativo = new SistemaOperativo();
     }
 
     @JsonProperty("id_equipo")
@@ -150,6 +156,42 @@ public class Equipo {
         this.sw = sw;
         return this;
     }
+
+    @JsonProperty("SO")
+    public SistemaOperativo getSO() {
+        return SO;
+    }
+    @JsonProperty("SO")
+    public void setSO(SistemaOperativo SO) {
+        this.SO = SO;
+    }
+    public Equipo withSO(SistemaOperativo SO) {
+        this.SO = SO;
+        return this;
+    }
+
+    @JsonProperty("SO_nombre")
+    public String getSO_nombre() {
+        return SO.getNombreSO();
+    }
+
+    @JsonProperty("SO_nombre")
+    public void setSO_nombre(String SO_nombre) {
+        SO.setNombreSO(SO_nombre);
+    }
+
+    @JsonProperty("SO_version")
+    public String getSO_version() {
+        return SO.getVersionSO();
+    }
+
+    @JsonProperty("SO_version")
+    public void setSO_version(String SO_version) {
+        SO.setVersionSO(SO_version);
+    }
+
+    
+
 
 
 
