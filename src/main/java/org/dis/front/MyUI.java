@@ -1,6 +1,7 @@
 package org.dis.front;
 
 import javax.servlet.annotation.WebServlet;
+import javax.swing.text.html.HTMLWriter;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -8,6 +9,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.*;
 import org.dis.back.Equipo;
+import org.dis.back.Hw;
 import org.dis.back.SistemaOperativo;
 import org.dis.back.Usuario;
 
@@ -50,6 +52,7 @@ public class MyUI extends UI {
                 new Usuario("1", "Nombre1", "Correo1", "Departamento1", "Ubicacion1", "Telefono1"));
 
         gridUsuarios.setItems(usuarios);
+
         /* ==== Estructura tab Equipos ==== */
 
         final VerticalLayout layoutEquiposContainer = new VerticalLayout();
@@ -66,6 +69,7 @@ public class MyUI extends UI {
         gridEquipos.addColumn(Equipo::getSO_version).setCaption("SO_version");
 
         Equipo equipo = new Equipo();
+
         equipo.setIdEquipo("1");
         equipo.setTipo("Tipo1");
         equipo.setMarca("Marca1");
@@ -75,13 +79,14 @@ public class MyUI extends UI {
         so.setNombreSO("nombre1");
         so.setVersionSO("version1");
 
-
         equipo.setSO(so);
 
-        
-        // Añade el eqiupo al grid
-        gridEquipos.setItems(equipo);
+        Hw hw = new Hw();
+        hw.setProcesador("procesador1");
 
+        // Añade el eqiupo al grid
+
+        gridEquipos.setItems(equipo);
 
         /* ==== Estructura tab Prestamos ==== */
 
@@ -97,7 +102,6 @@ public class MyUI extends UI {
         layout.addComponent(tabSheet);
         setContent(layout);
     }
-
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
