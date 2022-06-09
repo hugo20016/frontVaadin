@@ -65,6 +65,24 @@ public class MyUI extends UI {
         gridEquipos.addColumn(Equipo::getSO_nombre).setCaption("SO_nombre");
         gridEquipos.addColumn(Equipo::getSO_version).setCaption("SO_version");
 
+        Equipo equipo = new Equipo();
+        equipo.setIdEquipo("1");
+        equipo.setTipo("Tipo1");
+        equipo.setMarca("Marca1");
+        equipo.setUso("Uso1");
+
+        SistemaOperativo so = new SistemaOperativo();
+        so.setNombreSO("nombre1");
+        so.setVersionSO("version1");
+
+
+        equipo.setSO(so);
+
+        
+        // Añade el eqiupo al grid
+        gridEquipos.setItems(equipo);
+
+
         /* ==== Estructura tab Prestamos ==== */
 
         final VerticalLayout layoutPrestamosContainer = new VerticalLayout();
