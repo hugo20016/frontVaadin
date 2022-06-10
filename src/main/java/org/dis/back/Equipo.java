@@ -190,7 +190,7 @@ public class Equipo {
         SO.setVersionSO(SO_version);
     }
 
-    
+
 
 
 
