@@ -54,7 +54,7 @@ public class Equipo {
      * @param sw
      * @param hw
      */
-    public Equipo(String idEquipo, String tipo, String marca, String uso, Hw hw, Sw sw, SistemaOperativo SO) {
+    public Equipo(String idEquipo, String tipo, String marca, String uso, Hw hw, Sw sw) {
         super();
         this.idEquipo = idEquipo;
         this.tipo = tipo;
@@ -62,9 +62,6 @@ public class Equipo {
         this.uso = uso;
         this.hw = hw;
         this.sw = sw;
-        this.SO = SO;
-
-        SistemaOperativo sistemaOperativo = new SistemaOperativo();
     }
 
     @JsonProperty("id_equipo")
